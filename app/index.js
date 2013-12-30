@@ -28,7 +28,7 @@ OptidocGenerator.prototype.askFor = function askFor() {
     message: 'What is the name of the component you are documenting?'    
   },
   {
-    type: 'input',
+    type: 'list',
     name: 'componentType',
     message: 'What kind of component are you documenting?',
     choices: ['Directive', 'Controller', 'Service']
@@ -52,6 +52,8 @@ OptidocGenerator.prototype.app = function app() {
   this.mkdir('docs');
   this.mkdir('docs/img');
   this.mkdir('docs/bib');
+  this.copy('_package.json', 'package.json');
+  this.copy('_bower.json', 'bower.json');
   var savetoDir = '';
   if (this.componentType == 'Directive') {
     savetoDir = 'docs/directives';
@@ -61,7 +63,7 @@ OptidocGenerator.prototype.app = function app() {
     savetoDir = 'docs/services';
   }
   this.mkdir(savetoDir);
-  this.copy('Opti_color_small.jpg', 'docs/img/Opti_color_small.jpg');
+  this.copy('Opti_color_small.png', 'docs/img/Opti_color_small.png');
 
 
   var docTemplate = 
@@ -75,12 +77,12 @@ OptidocGenerator.prototype.app = function app() {
    '\\usepackage{titling}',
    '\\author{OptiRTC Developer Group}',
    '\\title{' + this.componentName + ' Component Specification}',
-   '\\date{\today}',
+   '\\date{\\today}',
    '\\begin{document}',   
-   '\\includegraphics[width=4cm]{docs/img/Opti_color_small.png}',
+   '\\includegraphics[width=4cm]{../img/Opti_color_small.png}',
    '\\newline',
    '\\newline',
-   '\\{\\LARGE \\thetitle}',
+   '{\\LARGE \\thetitle}',
    '\\newline',
    '\\newline',
    '{\\large \\theauthor}',
@@ -98,7 +100,7 @@ OptidocGenerator.prototype.app = function app() {
    '\\item List functionality and tasks performed, one per item...',
    '\\end{enumerate}',
    '\\section{Interfaces (code and/or graphical)}',
-   'Include images and service interface definitions here...'
+   'Include images and service interface definitions here...',
    '\\section{Outputs}',
    '\\begin{enumerate}',
    '\\item List outputs here, one per item...',
@@ -113,9 +115,8 @@ OptidocGenerator.prototype.app = function app() {
    '\\end{itemize}',
    '\\end{document}'
   ].join('\n');
-
-  if (this.)
-  this.write('savetoDir' + '/' + this.componentName + '.tex', docTemplate);  
+  
+  this.write(savetoDir + '/' + this.componentName + '.tex', docTemplate);  
 };
 
 OptidocGenerator.prototype.projectfiles = function projectfiles() {

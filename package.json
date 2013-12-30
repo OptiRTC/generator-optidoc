@@ -1,21 +1,22 @@
 {
   "name": "generator-optidoc",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "0.0.1",
+  "description": "A generator of OptiRTC user interface component documentation for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator", 
+    "optirtc"
   ],
-  "homepage": "https://github.com/hydrojumbo/generator-optidoc",
-  "bugs": "https://github.com/hydrojumbo/generator-optidoc/issues",
+  "homepage": "https://github.com/OptiRTC/generator-optidoc",
+  "bugs": "https://github.com/OptiRTC/generator-optidoc/issues",
   "author": {
     "name": "Alex Bedig",
-    "email": "",
+    "email": "abedig@geosyntec.com",
     "url": "https://github.com/hydrojumbo"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hydrojumbo/generator-optidoc.git"
+    "url": "https://github.com/OptiRTC/generator-optidoc.git"
   },
   "scripts": {
     "test": "mocha"
