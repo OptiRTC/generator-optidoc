@@ -1,5 +1,5 @@
 # generator-optidoc [![Build Status](https://secure.travis-ci.org/hydrojumbo/generator-optidoc.png?branch=master)](https://travis-ci.org/hydrojumbo/generator-optidoc)
-A [Yeoman](http://yeoman.io) generator for [OptiRTC](https://github.com/OptiRTC) user interface documentation.
+A [Yeoman](http://yeoman.io) generator for [OptiRTC](https://github.com/OptiRTC) user interface component documentation.
 
 ## Getting Started
 
