@@ -1,6 +1,7 @@
 'use strict';
 var util = require('util');
 var path = require('path');
+var fs = require('fs');
 var yeoman = require('yeoman-generator');
 
 
@@ -50,12 +51,17 @@ OptidocGenerator.prototype.askFor = function askFor() {
 
 OptidocGenerator.prototype.app = function app() {
   //generate documentation directories, with image and bibliography sub directories    
-  this.mkdir('img');
-  this.mkdir('bib');
+  this.mkdir('img');  
   this.copy('_package.json', 'package.json');  
-  this.copy('_templateBibliography.bib', 'bib/Bibliography.bib')
-  this.copy('Opti_color_small.png', 'img/Opti_color_small.png');
   
+  if (!fs.existsSync(this.destinationRoot() + '\\bib\\Bibliography.bib')) {
+    console.log('initializing bibliography file');
+    this.mkdir('bib');
+    this.copy('_templateBibliography.bib', 'bib/Bibliography.bib');
+    this.copy('Opti_color_small.png', 'img/Opti_color_small.png');
+  }
+  
+  //assign output to directory of component type
   var savetoDir = '';
   if (this.componentType == 'Directive') {
     savetoDir = 'directives';
@@ -85,7 +91,7 @@ OptidocGenerator.prototype.app = function app() {
    '{\\LARGE \\thetitle}',
    '\\newline',
    '\\newline',
-   '{\\large \\theauthor}',
+   '\\theauthor \\cite{optirtcaboutus}',
    '\\newline',
    '\\newline',
    'Compiled on: \\thedate',
