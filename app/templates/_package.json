@@ -1,5 +1,10 @@
 {
-  "name": "package",
+  "name": "",
   "version": "0.0.0",
-  "dependencies": {}
+  "description": "Templated OptiRTC documentation",
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
 }

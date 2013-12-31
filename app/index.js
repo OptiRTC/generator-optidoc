@@ -19,8 +19,9 @@ util.inherits(OptidocGenerator, yeoman.generators.Base);
 OptidocGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
+  console.log('\n');
+  console.log('Welcome to OptiDoc, the first step in documenting OptiRTC components.');
+  console.log('\n');
 
   var prompts = [{
     type: 'input',
@@ -48,22 +49,22 @@ OptidocGenerator.prototype.askFor = function askFor() {
 };
 
 OptidocGenerator.prototype.app = function app() {
-  //generate documentation directories, with image and bibliography sub directories  
-  this.mkdir('docs');
-  this.mkdir('docs/img');
-  this.mkdir('docs/bib');
+  //generate documentation directories, with image and bibliography sub directories    
+  this.mkdir('img');
+  this.mkdir('bib');
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
+  
   var savetoDir = '';
   if (this.componentType == 'Directive') {
-    savetoDir = 'docs/directives';
+    savetoDir = 'directives';
   } else if (this.componentType == 'Controller') {
-    savetoDir = 'docs/controllers';
+    savetoDir = 'controllers';
   } else {
-    savetoDir = 'docs/services';
+    savetoDir = 'services';
   }
   this.mkdir(savetoDir);
-  this.copy('Opti_color_small.png', 'docs/img/Opti_color_small.png');
+  this.copy('Opti_color_small.png', 'img/Opti_color_small.png');
 
 
   var docTemplate = 
