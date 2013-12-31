@@ -52,8 +52,9 @@ OptidocGenerator.prototype.app = function app() {
   //generate documentation directories, with image and bibliography sub directories    
   this.mkdir('img');
   this.mkdir('bib');
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
+  this.copy('_package.json', 'package.json');  
+  this.copy('_templateBibliography.bib', 'bib/Bibliography.bib')
+  this.copy('Opti_color_small.png', 'img/Opti_color_small.png');
   
   var savetoDir = '';
   if (this.componentType == 'Directive') {
@@ -63,9 +64,7 @@ OptidocGenerator.prototype.app = function app() {
   } else {
     savetoDir = 'services';
   }
-  this.mkdir(savetoDir);
-  this.copy('Opti_color_small.png', 'img/Opti_color_small.png');
-
+  this.mkdir(savetoDir);  
 
   var docTemplate = 
   ['\\documentclass[12pt,a4paper]{article}',
@@ -101,19 +100,21 @@ OptidocGenerator.prototype.app = function app() {
    '\\item List functionality and tasks performed, one per item...',
    '\\end{enumerate}',
    '\\section{Interfaces (code and/or graphical)}',
-   'Include images and service interface definitions here...',
+   'Include images of GUIs and list service interface definitions here...',
    '\\section{Outputs}',
    '\\begin{enumerate}',
-   '\\item List outputs here, one per item...',
+   '\\item N/A.',
    '\\end{enumerate}',
    '\\section{Dependencies}',
    '\\begin{itemize}',
-   '\\item List dependencies here, one per item...',
+   '\\item None.',
    '\\end{itemize}',
    '\\section{Security}',
    '\\begin{itemize}',
-   '\\item List security concerns here, one per item...',
+   '\\item None.',
    '\\end{itemize}',
+   '\\bibliography{../bib/Bibliography}',
+   '\\bibliographystyle{plain}',
    '\\end{document}'
   ].join('\n');
   

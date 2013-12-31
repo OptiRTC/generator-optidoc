@@ -1,7 +1,7 @@
 {
   "name": "generator-optidoc",
   "version": "0.0.0",
-  "description": "A generator of LaTex OptiRTC user interface component documentation for Yeoman",
+  "description": "A generator of OptiRTC user interface component documentation for Yeoman.",
   "keywords": [
     "yeoman-generator", 
     "optirtc"
