@@ -5,18 +5,20 @@
   "keywords": [
     "yeoman-generator", 
     "optirtc"
-  ],
+  ],  
   "homepage": "https://github.com/OptiRTC/generator-optidoc",
   "bugs": "https://github.com/OptiRTC/generator-optidoc/issues",
   "author": {
     "name": "Alex Bedig",
     "email": "abedig@geosyntec.com",
     "url": "https://github.com/hydrojumbo"
-  },
+  },  
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OptiRTC/generator-optidoc.git"
+    "url": "https://github.com/OptiRTC/generator-optidoc"
+  },
+  "directories": {    
   },
   "scripts": {
     "test": "mocha"

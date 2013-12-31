@@ -1,0 +1,1 @@
+[![Build Status](https://secure.travis-ci.org/hydrojumbo/generator-optidoc.png?branch=master)](https://travis-ci.org/hydrojumbo/generator-optidoc)
