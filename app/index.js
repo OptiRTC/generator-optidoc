@@ -51,14 +51,15 @@ OptidocGenerator.prototype.askFor = function askFor() {
 
 OptidocGenerator.prototype.app = function app() {
   //generate documentation directories, with image and bibliography sub directories    
-  this.mkdir('img');  
-  this.copy('_package.json', 'package.json');  
+  this.mkdir('docs');
+  this.mkdir('docs/img');  
+  this.copy('_package.json', 'docs/package.json');  
   
-  if (!fs.existsSync(this.destinationRoot() + '\\bib\\Bibliography.bib')) {
+  if (!fs.existsSync(this.destinationRoot() + '\\docs\\bib\\Bibliography.bib')) {
     console.log('initializing bibliography file');
-    this.mkdir('bib');
-    this.copy('_templateBibliography.bib', 'bib/Bibliography.bib');
-    this.copy('Opti_color_small.png', 'img/Opti_color_small.png');
+    this.mkdir('docs/bib');
+    this.copy('_templateBibliography.bib', 'docs/bib/Bibliography.bib');
+    this.copy('Opti_color_small.png', 'docs/img/Opti_color_small.png');
   }
   
   //assign output to directory of component type
@@ -70,7 +71,7 @@ OptidocGenerator.prototype.app = function app() {
   } else {
     savetoDir = 'services';
   }
-  this.mkdir(savetoDir);  
+  this.mkdir('docs/' + savetoDir);  
 
   var docTemplate = 
   ['\\documentclass[12pt,a4paper]{article}',
@@ -124,7 +125,7 @@ OptidocGenerator.prototype.app = function app() {
    '\\end{document}'
   ].join('\n');
   
-  this.write(savetoDir + '/' + this.componentName + '.tex', docTemplate);  
+  this.write('docs/' + savetoDir + '/' + this.componentName + '.tex', docTemplate);  
 };
 
 OptidocGenerator.prototype.projectfiles = function projectfiles() {
